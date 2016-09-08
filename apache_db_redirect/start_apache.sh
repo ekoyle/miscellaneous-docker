@@ -19,7 +19,7 @@ DBDParams "${DB_CONNSTR:-dbname=redirect_test}"
 
 	RewriteEngine On
 	RewriteMap host_redir "dbd:SELECT tourl FROM host_redir WHERE fromhost = %s"
-	RewriteRule . "\${host_redir:%{HTTP_HOST}|${REDIR_FAILURE_BASE:-http://redirfailure.usu.edu}/host=%{HTTP_HOST}}" [R=302,L]
+	RewriteRule . "\${host_redir:%{HTTP_HOST}|${REDIR_FAILURE_BASE:-http://redirfailure.example}/host=%{HTTP_HOST}}" [R=302,L]
 
 </VirtualHost>
 
